@@ -1,0 +1,41 @@
+{% extends "vendor/nystudio107/craft-twig-base-templates/templates/_layouts/html-page.twig" %}
+
+{# -- Content that appears before the primary content block -- #}
+{% block preContent %}
+{% endblock %}
+
+{# -- Primary content block -- #}
+{% block content %}
+    <section>
+        <h1>SQLite</h1>
+        <h3>content</h3>
+    </section>
+
+    {# @var sqliteDb \craft\db\Connection #}
+    {% set sqliteDb = craft.app.sqliteDb %}
+
+    {# Get the table names #}
+    {{ include('includes/display-tables.twig', { props: {
+        dbConnection: sqliteDb
+    }
+    }, with_context = false) }}
+
+    {# Display the arists #}
+    {{ include('includes/display-artists.twig', { props: {
+        dbConnection: sqliteDb
+    }
+    }, with_context = false) }}
+
+{% endblock %}
+
+{# -- Content that appears after the primary content block -- #}
+{% block postContent %}
+    <section>
+        <h3>postContent</h3>
+    </section>
+{% endblock %}
+
+{# -- Any <script></script> tags that should be included before </body> -- #}
+{% block bodyScripts %}
+    {{ parent() }}
+{% endblock bodyScripts %}

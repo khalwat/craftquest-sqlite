@@ -1,0 +1,22 @@
+{% set props = {
+    dbConnection: null,
+} | merge(props ?? {}) %}
+
+{# Display the arists #}
+{% set artists = create({
+    class: 'craft\\db\\Query',
+})
+    .from('artists')
+    .all(props.dbConnection) %}
+<h2>Artists ({{ artists | length }})</h2>
+<ul>
+    {% for artist in artists %}
+        <li>{{ artist.Name }}</li>
+        {# Display the arists #}
+        {{ include('includes/display-albums.twig', { props: {
+            dbConnection: props.dbConnection,
+            artist: artist
+        }
+        }, with_context = false) }}
+    {% endfor %}
+</ul>

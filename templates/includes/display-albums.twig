@@ -1,0 +1,26 @@
+{% set props = {
+    dbConnection: null,
+    artist: [],
+} | merge(props ?? {}) %}
+
+{# Display the albums #}
+{% set albums = create({
+    class: 'craft\\db\\Query',
+})
+    .from('albums')
+    .where({ ArtistId: props.artist.ArtistId})
+    .all(props.dbConnection) %}
+<details>
+    <summary>Albums ({{ albums | length }})</summary>
+    <ul>
+        {% for album in albums %}
+            <li>{{ album.Title }}</li>
+            {# Display the tracks #}
+            {{ include('includes/display-tracks.twig', { props: {
+                dbConnection: props.dbConnection,
+                album: album
+            }
+            }, with_context = false) }}
+        {% endfor %}
+    </ul>
+</details>

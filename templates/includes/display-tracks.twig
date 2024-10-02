@@ -1,0 +1,20 @@
+{% set props = {
+    dbConnection: null,
+    album: [],
+} | merge(props ?? {}) %}
+
+{# Display the tracks #}
+{% set tracks = create({
+    class: 'craft\\db\\Query',
+})
+    .from('tracks')
+    .where({ AlbumId: props.album.AlbumId})
+    .all(props.dbConnection) %}
+<details>
+    <summary>Tracks ({{ tracks | length }})</summary>
+    <ul>
+        {% for track in tracks %}
+            <li>{{ track.Name }}</li>
+        {% endfor %}
+    </ul>
+</details>

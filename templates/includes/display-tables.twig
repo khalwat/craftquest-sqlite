@@ -1,0 +1,10 @@
+{% set props = {
+    dbConnection: null,
+} | merge(props ?? {}) %}
+
+{# Get the table names #}
+<h2>Table Names</h2>
+{% set tableNames = props.dbConnection.getSchema().getTableNames() %}
+{% for tableName in tableNames %}
+    <li>{{ tableName }}</li>
+{% endfor %}
