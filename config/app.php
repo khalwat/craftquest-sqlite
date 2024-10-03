@@ -24,6 +24,9 @@ use craft\helpers\App;
 use Yiisoft\Db\Sqlite\Dsn;
 use yii\db\Connection;
 
+/**
+ * Database is from https://www.sqlitetutorial.net/sqlite-sample-database/
+ */
 const SQLITE_DB_PATH = '/sqlite-db/chinook.db';
 
 $sqliteDsn = (new Dsn('sqlite', dirname(__DIR__, 1) . SQLITE_DB_PATH))->__toString();

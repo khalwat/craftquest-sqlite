@@ -1,3 +1,13 @@
+# CraftQuest Sqlite
+
+This project was made for a LiveStream demo on [CraftQuest.io](https://craftquest.io/) that demonstrates how to connect to an external Sqlite database in Craft CMS.
+
+This is a real-world example using the methodology in the [Connecting to an External Database in Craft CMS](https://nystudio107.com/blog/connecting-to-an-external-database-in-craft-cms) article.
+
+It uses a sample Sqlite database from [sqlitetutorial.net](https://www.sqlitetutorial.net/sqlite-sample-database/) and the [Yii2 db-sqlite](https://github.com/yiisoft/db-sqlite) Sqlite driver.
+
+This project uses Spin Up Craft 5.0 Beta to work; the complete README for Spin Up Craft 5.0 Beta is below
+
 # Spin Up Craft 5.0 Beta
 
 If you want to give the new Craft CMS 5.0 Beta without having to do any setup, this project is for you!
