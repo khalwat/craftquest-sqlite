@@ -16,11 +16,11 @@
         {% for album in albums %}
             <li>{{ album.Title }}</li>
             {# Display the tracks #}
-            {{ include('includes/display-tracks.twig', { props: {
+            {% set props = {
                 dbConnection: props.dbConnection,
                 album: album
-            }
-            }, with_context = false) }}
+            } %}
+            {{ include('includes/display-tracks.twig', { props }, with_context = false) }}
         {% endfor %}
     </ul>
 </details>

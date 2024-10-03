@@ -15,16 +15,16 @@
     {% set sqliteDb = craft.app.sqliteDb %}
 
     {# Get the table names #}
-    {{ include('includes/display-tables.twig', { props: {
+    {% set props = {
         dbConnection: sqliteDb
-    }
-    }, with_context = false) }}
+    } %}
+    {{ include('includes/display-tables.twig', { props }, with_context = false) }}
 
     {# Display the arists #}
-    {{ include('includes/display-artists.twig', { props: {
+    {% set props = {
         dbConnection: sqliteDb
-    }
-    }, with_context = false) }}
+    } %}
+    {{ include('includes/display-artists.twig', { props }, with_context = false) }}
 
 {% endblock %}
 

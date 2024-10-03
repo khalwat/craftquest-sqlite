@@ -13,10 +13,10 @@
     {% for artist in artists %}
         <li>{{ artist.Name }}</li>
         {# Display the arists #}
-        {{ include('includes/display-albums.twig', { props: {
+        {% set props = {
             dbConnection: props.dbConnection,
             artist: artist
-        }
-        }, with_context = false) }}
+        } %}
+        {{ include('includes/display-albums.twig', { props }, with_context = false) }}
     {% endfor %}
 </ul>
