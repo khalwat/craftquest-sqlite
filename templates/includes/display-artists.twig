@@ -1,3 +1,4 @@
+{# @var props \khalwat\twigprops\DbConnectionProps #}
 {% set props = {
     dbConnection: null,
 } | merge(props ?? {}) %}
@@ -10,9 +11,11 @@
     .all(props.dbConnection) %}
 <h2>Artists ({{ artists | length }})</h2>
 <ul>
+    {# @var artist \khalwat\attributes\ArtistsAttributes #}
     {% for artist in artists %}
         <li>{{ artist.Name }}</li>
-        {# Display the arists #}
+        {# Display the albums #}
+        {# @var props \khalwat\twigprops\AlbumProps #}
         {% set props = {
             dbConnection: props.dbConnection,
             artist: artist

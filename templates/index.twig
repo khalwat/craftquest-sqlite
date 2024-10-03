@@ -15,12 +15,14 @@
     {% set sqliteDb = craft.app.sqliteDb %}
 
     {# Get the table names #}
+    {# @var props \khalwat\twigprops\DbConnectionProps #}
     {% set props = {
         dbConnection: sqliteDb
     } %}
     {{ include('includes/display-tables.twig', { props }, with_context = false) }}
 
     {# Display the arists #}
+    {# @var props \khalwat\twigprops\DbConnectionProps #}
     {% set props = {
         dbConnection: sqliteDb
     } %}

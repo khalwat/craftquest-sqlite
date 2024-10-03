@@ -1,3 +1,4 @@
+{# @var props \khalwat\twigprops\TracksProps #}
 {% set props = {
     dbConnection: null,
     album: [],
@@ -13,6 +14,7 @@
 <details>
     <summary>Tracks ({{ tracks | length }})</summary>
     <ul>
+        {# @var track \khalwat\attributes\TracksAttributes #}
         {% for track in tracks %}
             <li>{{ track.Name }}</li>
         {% endfor %}
