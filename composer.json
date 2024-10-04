@@ -15,7 +15,8 @@
   },
   "autoload": {
     "psr-4": {
-      "khalwat\\twigProps\\": "src/twigprops/"
+      "khalwat\\twigProps\\": "src/twigprops/",
+      "khalwat\\attributes\\": "src/attributes/"
     }
   },
   "config": {
